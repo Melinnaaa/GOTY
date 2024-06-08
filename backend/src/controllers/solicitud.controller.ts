@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import EmpleadoSolicitud from '../models/empleadoSolicitud.model';
 import multer from 'multer';
 import Solicitud from '../models/solicitud.model';
+import Empleado from '../models/empleado.model';
 
 // Configuración de multer para el manejo de archivos con tamaño máximo de 16 MB (MEDIUMBLOB)
 const storage = multer.memoryStorage();
@@ -27,6 +28,10 @@ export const createSolicitud = async (req: Request, res: Response) => {
 
         try {
             const { motivo, fecha, descripcion, rut } = req.body;
+            if (Empleado.findByPk(rut) == null)
+            {
+                return res.status(401).json({ message: 'Los administradores no pueden realizar solicitudes.' });
+            }
             const archivo = req.file ? req.file.buffer : null;
 
             // Logging para verificar los datos recibidos

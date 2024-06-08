@@ -36,6 +36,10 @@ export class VerHorariosPage implements OnInit {
     this.obtenerHorarios();
   }
 
+  ionViewWillEnter() {
+    this.obtenerHorarios();
+  }
+
   obtenerHorarios() {
     this.turnoService.obtenerHorarios().subscribe(
       (response) => {

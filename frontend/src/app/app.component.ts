@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
 export class AppComponent {
   mostrarFooter: boolean;
   mostrarBoton: boolean;
+  private navigationHistory: string[][] = [[]];
 
   constructor(private router: Router, private location: Location) {
     this.mostrarFooter = this.getCookie('mostrarFooter') !== 'false';
@@ -28,12 +29,54 @@ export class AppComponent {
 
         console.log('Updated mostrarFooter:', this.mostrarFooter);
         console.log('Updated mostrarBoton:', this.mostrarBoton);
+
+        this.addToHistory(currentUrl);
       }
     });
   }
 
+  addToHistory(url: string) {
+    const currentLevel = this.navigationHistory.length - 1;
+    this.navigationHistory[currentLevel].push(url);
+  
+    // Si la página actual se redirigió, elimina la URL anterior de la pila
+    if (this.navigationHistory[currentLevel].length > 1) {
+      this.navigationHistory[currentLevel].pop();
+    }
+  }
+  
+
+  removeFromHistory() {
+    const currentLevel = this.navigationHistory.length - 1;
+    this.navigationHistory[currentLevel].pop();
+  }
+
+  getPreviousUrl(): string {
+    const currentLevel = this.navigationHistory.length - 1;
+    if (this.navigationHistory[currentLevel].length > 1) {
+      this.navigationHistory[currentLevel].pop(); // Elimina la última página actual
+      return this.navigationHistory[currentLevel].pop() || '/'; // Retorna la página anterior o la raíz si no hay una anterior
+    } else if (this.navigationHistory.length > 1) {
+      // Si no hay más páginas en este nivel, retrocede al nivel anterior
+      this.navigationHistory.pop();
+      const prevLevel = this.navigationHistory.length - 1;
+      return this.navigationHistory[prevLevel].pop() || '/';
+    } else {
+      return '/';
+    }
+  }
+
+  pushNavigationLevel() {
+    this.navigationHistory.push([]);
+  }
+
+  popNavigationLevel() {
+    this.navigationHistory.pop();
+  }
+
   goBack() {
-    this.location.back();
+    const previousUrl = this.getPreviousUrl();
+    this.router.navigateByUrl(previousUrl);
   }
 
   private getCookie(name: string): string {

@@ -15,6 +15,14 @@ export class AccountPage implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  // Esto hace que se ejecute la pagina siempre al entrar, de esta manera si hay cambios estos se ven reflejados.
+  ionViewWillEnter() {
+    this.loadUserData();
+  }
+
+  loadUserData() {
     this.userName = localStorage.getItem('userName');
     this.userRole = this.getRoleLabel(this.authService.getRole());
     this.email = localStorage.getItem('email');

@@ -1,0 +1,33 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build outputs
+dist/
+build/
+
+# Ignore Angular specific files
+.angular/
+
+# Ignore Nx specific files
+.nx/
+
+# Ignore environment files
+src/environments/environment*.ts
+
+# Ignore log files
+*.log
+
+# Ignore IDE specific files (e.g., VSCode)
+.vscode/
+.idea/
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore temporary files
+tmp/
+temp/
+
+# Ignore other system files
+Thumbs.db
+Desktop.ini

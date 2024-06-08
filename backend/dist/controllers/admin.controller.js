@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.crearAdministrador = exports.deleteEmpleado = exports.updateEmpleado = exports.createEmpleado = exports.getEmpleadoById = exports.getEmpleados = void 0;
+exports.crearAdministrador = exports.deleteEmpleado = exports.updateUser = exports.createEmpleado = exports.getUserById = exports.getEmpleados = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const empleado_model_1 = __importDefault(require("../models/empleado.model"));
 const admin_model_1 = __importDefault(require("../models/admin.model"));
@@ -32,29 +32,30 @@ const getEmpleados = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.getEmpleados = getEmpleados;
-// Obtener un empleado por ID
-const getEmpleadoById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
+    console.log(id);
     try {
-        const empleado = yield empleado_model_1.default.findByPk(id);
-        if (empleado) {
-            res.json(empleado);
+        let usuario = yield empleado_model_1.default.findByPk(id);
+        if (!usuario) {
+            usuario = yield admin_model_1.default.findByPk(id);
+            if (!usuario) {
+                return res.status(404).json({
+                    msg: `No existe un empleado o administrador con ID ${id}`,
+                });
+            }
         }
-        else {
-            res.status(404).json({
-                msg: `No existe un empleado con ID ${id}`,
-            });
-        }
+        res.json(usuario);
     }
     catch (error) {
         console.error('Error:', error);
         res.status(500).json({
-            msg: 'Error al obtener el empleado',
+            msg: 'Error al obtener el empleado o administrador',
             error,
         });
     }
 });
-exports.getEmpleadoById = getEmpleadoById;
+exports.getUserById = getUserById;
 // Crear un nuevo empleado
 const createEmpleado = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
@@ -76,31 +77,39 @@ const createEmpleado = (req, res) => __awaiter(void 0, void 0, void 0, function*
 });
 exports.createEmpleado = createEmpleado;
 // Actualizar un empleado existente
-const updateEmpleado = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const { body } = req;
     try {
-        const empleado = yield empleado_model_1.default.findByPk(id);
-        if (!empleado) {
-            return res.status(404).json({
-                msg: 'Empleado no encontrado',
-            });
+        let usuario = yield empleado_model_1.default.findByPk(id);
+        if (!usuario) {
+            usuario = yield admin_model_1.default.findByPk(id);
+            if (!usuario) {
+                return res.status(404).json({
+                    msg: 'Empleado o administrador no encontrado',
+                });
+            }
         }
-        yield empleado.update(body);
+        // Verificar si hay una nueva contraseña en el cuerpo de la solicitud
+        console.log(body);
+        if (body.Contrasena) {
+            body.Contraseña = yield bcrypt_1.default.hash(body.Contrasena, 10);
+        }
+        yield usuario.update(body);
         res.json({
-            msg: 'Empleado actualizado correctamente',
-            empleado,
+            msg: `${usuario instanceof empleado_model_1.default ? 'Empleado' : 'Administrador'} actualizado correctamente`,
+            usuario,
         });
     }
     catch (error) {
         console.error('Error:', error);
         res.status(500).json({
-            msg: 'Error al actualizar el empleado',
+            msg: 'Error al actualizar el empleado o administrador',
             error,
         });
     }
 });
-exports.updateEmpleado = updateEmpleado;
+exports.updateUser = updateUser;
 // Eliminar un empleado
 const deleteEmpleado = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;

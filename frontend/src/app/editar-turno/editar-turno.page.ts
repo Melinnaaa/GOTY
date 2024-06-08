@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TurnoService } from '../services/turno.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-turno',
@@ -13,7 +14,7 @@ export class EditarTurnoPage implements OnInit {
   empleados: any[] = [];
   nuevoEmpleado: any;
 
-  constructor(private turnoService: TurnoService, private route: ActivatedRoute) {
+  constructor(private turnoService: TurnoService, private route: ActivatedRoute, private router: Router) {
     this.fecha = '';
   }
 
@@ -60,6 +61,7 @@ export class EditarTurnoPage implements OnInit {
     this.turnoService.actualizarTurnos(this.fecha, this.turnos).subscribe(
       (response) => {
         alert('Turnos actualizados correctamente');
+        this.router.navigate(['/horario']);
       },
       (error) => {
         console.error('Error al actualizar los turnos:', error);

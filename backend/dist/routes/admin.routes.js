@@ -8,9 +8,9 @@ const auth_middleware_1 = require("../middlewares/auth.middleware");
 const router = (0, express_1.Router)();
 // Rutas para gestionar empleados
 router.get('/', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), admin_controller_1.getEmpleados);
-router.get('/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), admin_controller_1.getEmpleadoById);
+router.get('/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, admin_controller_1.getUserById);
 router.post('/', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), admin_controller_1.createEmpleado);
-router.put('/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), admin_controller_1.updateEmpleado);
+router.put('/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, admin_controller_1.updateUser);
 router.delete('/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), admin_controller_1.deleteEmpleado);
 router.post('/crear-admin', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), admin_controller_1.crearAdministrador);
 exports.default = router;

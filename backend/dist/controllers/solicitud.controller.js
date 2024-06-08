@@ -16,6 +16,7 @@ exports.descargarArchivo = exports.responderSolicitud = exports.getSolicitudesNo
 const empleadoSolicitud_model_1 = __importDefault(require("../models/empleadoSolicitud.model"));
 const multer_1 = __importDefault(require("multer"));
 const solicitud_model_1 = __importDefault(require("../models/solicitud.model"));
+const empleado_model_1 = __importDefault(require("../models/empleado.model"));
 // Configuración de multer para el manejo de archivos con tamaño máximo de 16 MB (MEDIUMBLOB)
 const storage = multer_1.default.memoryStorage();
 const upload = (0, multer_1.default)({
@@ -39,6 +40,9 @@ const createSolicitud = (req, res) => __awaiter(void 0, void 0, void 0, function
             console.log('File:', req.file);
             try {
                 const { motivo, fecha, descripcion, rut } = req.body;
+                if (empleado_model_1.default.findByPk(rut) == null) {
+                    return res.status(401).json({ message: 'Los administradores no pueden realizar solicitudes.' });
+                }
                 const archivo = req.file ? req.file.buffer : null;
                 // Logging para verificar los datos recibidos
                 console.log('Datos recibidos del formulario:');

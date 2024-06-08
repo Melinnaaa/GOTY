@@ -38,6 +38,10 @@ export class HorarioPage implements OnInit {
     this.cargarHorario();
   }
 
+  ionViewWillEnter() {
+    this.cargarHorario();
+  }
+
   cargarHorario() {
     const today = new Date();
     const mes = today.getMonth() + 1;

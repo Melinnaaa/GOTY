@@ -26,7 +26,7 @@
           <ion-input [(ngModel)]="user.Contrasena" name="contraseña" type="password" required></ion-input>
         </ion-item>
 
-        <ion-button expand="block" type="submit" class="ion-margin-top">Actualizar</ion-button>
+        <ion-button expand="block" type="submit" class="ion-margin-top" routerLink="/account">Actualizar</ion-button>
       </form>
 
       <ion-text color="primary" *ngIf="message" class="ion-margin-top">{{ message }}</ion-text>
