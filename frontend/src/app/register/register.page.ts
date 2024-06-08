@@ -56,7 +56,7 @@ export class RegisterPage implements OnInit {
     const user: User = {
       Correo: this.email,
       Nombre: this.username,
-      Contraseña: this.password,
+      Contrasena: this.password,
       Rut: this.rut,
       role: 0 // Establecer el rol a 0 para empleados
     };

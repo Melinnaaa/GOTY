@@ -11,11 +11,10 @@
     </ion-card-header>
     <ion-card-content>
       <p><strong>Correo electrónico:</strong> {{ email }}</p>
-      <p><strong>Region:</strong> {{ region }}</p>
-      <p><strong>Comuna:</strong> {{ comuna }}</p>
       <p><strong>Rol:</strong> {{ userRole }}</p>
     </ion-card-content>
   </ion-card>
 
   <ion-button expand="full" color="primary" (click)="logout()">Logout</ion-button>
+  <ion-button expand="full" color="primary" [routerLink]="['/update-profile']">Actualizar Perfil</ion-button>
 </ion-content>

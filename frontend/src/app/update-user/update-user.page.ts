@@ -9,7 +9,7 @@ import { User } from '../interfaces/users'; // Asegúrate de ajustar la ruta
 })
 export class UpdateUserPage implements OnInit {
   userId: string = '';
-  user: User = { Rut: '', Nombre: '', Correo: '', Contraseña: '', role: 0 }; 
+  user: User = { Rut: '', Nombre: '', Correo: '', Contrasena: '', role: 0 }; 
   message: string = '';
 
   constructor(private userService: UserService) { }

@@ -146,6 +146,10 @@ const routes: Routes = [
     path: 'reservas',
     loadChildren: () => import('./reservas/reservas.module').then( m => m.ReservasPageModule)
   },
+  {
+    path: 'update-profile',
+    loadChildren: () => import('./update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
+  },
 ];
 
 @NgModule({

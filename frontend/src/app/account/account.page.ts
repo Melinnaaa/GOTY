@@ -11,8 +11,6 @@ export class AccountPage implements OnInit {
   userName: string | null = '';
   userRole: string = '';
   email: string | null = '';
-  comuna: string | null = '';
-  region: string | null = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 

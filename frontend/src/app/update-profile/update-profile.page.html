@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualizar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Actualizar Perfil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="updateUser()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input [(ngModel)]="user.Nombre" name="nombre" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input [(ngModel)]="user.Correo" name="correo" type="email" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="user.Contrasena" name="contraseña" type="password" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top">Actualizar</ion-button>
+      </form>
+
+      <ion-text color="primary" *ngIf="message" class="ion-margin-top">{{ message }}</ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

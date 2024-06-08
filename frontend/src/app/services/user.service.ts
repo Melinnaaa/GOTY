@@ -49,4 +49,16 @@ export class UserService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post(`http://localhost:3000/api/admin/crear-admin`, admin, { headers, withCredentials: true});
   }
+
+  getUserProfile(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<User>(`http://localhost:3000/api/profile`, { headers, withCredentials: true });
+  }
+
+  updateUserProfile(user: User): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put<User>(`http://localhost:3000/api/profile`, user, { headers, withCredentials: true });
+  }
 }
