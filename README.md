@@ -4,9 +4,16 @@
 Goty App es una aplicación de gestión de empleados y recursos que permite a los administradores gestionar turnos, recursos y solicitudes de los empleados.
 
 ## Requisitos
-- Node.js
+- Node.js, puedes instalarlo desde acá [nodejs.org](https://nodejs.org/en/download/)
+   - Reinicia tu computador después de instalar para asegurar que los cambios tomen efecto.
 - npm (Node Package Manager)
-- XAMPP (para gestionar MySQL y Apache en Windows)
+- XAMPP (para gestionar MySQL y Apache en Windows), puedes instalarlo desde acá [xampp](https://www.apachefriends.org/es/download.html)
+- **Instalación de Ionic CLI**:
+   - Abre Visual Studio Code (VS Code) y abre una terminal.
+   - Ejecuta el siguiente comando para instalar Ionic CLI globalmente:
+     ```
+     npm i -g @ionic/cli
+     ```
 
 ## Instalación
 
