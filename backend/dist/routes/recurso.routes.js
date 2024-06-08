@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const recurso_controller_1 = require("../controllers/recurso.controller");
+const session_middleware_1 = require("../middlewares/session.middleware");
+const auth_middleware_1 = require("../middlewares/auth.middleware");
+const role_middleware_1 = require("../middlewares/role.middleware");
+const router = (0, express_1.Router)();
+router.post('/reservar/:idRecurso', auth_middleware_1.verifyToken, session_middleware_1.verifySession, recurso_controller_1.reservarRecurso);
+router.get('/disponibles', auth_middleware_1.verifyToken, session_middleware_1.verifySession, recurso_controller_1.obtenerRecursosDisponibles);
+router.get('/noDisponibles', auth_middleware_1.verifyToken, session_middleware_1.verifySession, (0, role_middleware_1.verifyRole)(1), recurso_controller_1.obtenerRecursosNoDisponibles);
+router.put('/liberar/:idRecurso', auth_middleware_1.verifyToken, session_middleware_1.verifySession, (0, role_middleware_1.verifyRole)(1), recurso_controller_1.liberarRecursoManualmente);
+router.get('/reservas/:rut', auth_middleware_1.verifyToken, session_middleware_1.verifySession, recurso_controller_1.obtenerReservasPorEmpleado);
+exports.default = router;

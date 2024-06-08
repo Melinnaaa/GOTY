@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const solicitud_controller_1 = require("../controllers/solicitud.controller");
+const session_middleware_1 = require("../middlewares/session.middleware");
+const role_middleware_1 = require("../middlewares/role.middleware");
+const auth_middleware_1 = require("../middlewares/auth.middleware");
+const router = (0, express_1.Router)();
+router.post('/', session_middleware_1.verifySession, auth_middleware_1.verifyToken, solicitud_controller_1.createSolicitud);
+router.get('/user/:rut', session_middleware_1.verifySession, auth_middleware_1.verifyToken, solicitud_controller_1.getSolicitudesByUser);
+router.post('/responder/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), solicitud_controller_1.responderSolicitud);
+router.get('/no-respondidas', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), solicitud_controller_1.getSolicitudesNoRespondidas);
+router.get('/descargar/:id', session_middleware_1.verifySession, auth_middleware_1.verifyToken, (0, role_middleware_1.verifyRole)(1), solicitud_controller_1.descargarArchivo);
+exports.default = router;

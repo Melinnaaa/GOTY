@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const turno_controller_1 = require("../controllers/turno.controller");
+const router = (0, express_1.Router)();
+router.post('/generar', turno_controller_1.generarHorario);
+router.get('/obtener', turno_controller_1.obtenerHorarios);
+router.put('/actualizar/:fecha', turno_controller_1.actualizarTurnos);
+router.get('/obtenerPorFecha/:fecha', turno_controller_1.obtenerTurnosPorFecha);
+router.get('/obtenerEmpleados', turno_controller_1.obtenerTodosLosEmpleados);
+exports.default = router;
