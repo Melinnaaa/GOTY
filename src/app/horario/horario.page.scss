@@ -1,0 +1,17 @@
+:host {
+    full-calendar {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  
+    .fc .fc-event {
+      background-color: blue !important;
+      color: white !important;
+    }
+  
+    .fc-toolbar-title {
+      font-size: 1.5em;
+    }
+  }
+  

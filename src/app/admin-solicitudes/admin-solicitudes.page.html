@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Solicitudes No Respondidas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let solicitud of solicitudes" (click)="seleccionarSolicitud(solicitud)">
+      <ion-label>
+        <h2>Solicitud ID: {{ solicitud.Id }}</h2>
+        <p>Motivo: {{ solicitud.Tipo }}</p>
+        <p>Fecha: {{ solicitud.Fecha }}</p>
+        <p>Descripción: {{ solicitud.Descripcion }}</p>
+        <p>Respuesta: {{ solicitud.Respuesta || 'Aún sin respuesta' }}</p>
+        <ion-button *ngIf="solicitud.Archivo" (click)="descargarArchivo(solicitud.Id)">Descargar Archivo</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="solicitudSeleccionada">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Responder Solicitud</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Respuesta</ion-label>
+          <ion-textarea [(ngModel)]="respuesta"></ion-textarea>
+        </ion-item>
+        <ion-button expand="full" (click)="responderSolicitud()">Enviar Respuesta</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
