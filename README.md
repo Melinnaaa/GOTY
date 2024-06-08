@@ -17,8 +17,7 @@ cd goty-app
 ```
 ### 2. Configurar la base de datos
 - Abre XAMPP y asegúrate de que MySQL esté en funcionamiento.
-- Abre phpMyAdmin y crea una nueva base de datos llamada goty.
-- Importa el archivo goty.sql (si existe) en la base de datos goty.
+- Abre phpMyAdmin, accede a la pestaña sql en la parte superior y copia el contenido de goty.sql.
 ### 4. Instalar dependencias
 #### Backend
 * cd backend
@@ -35,26 +34,11 @@ cd goty-app
 ## Ejecución
 ### 1. Iniciar el backend
 * cd backend
-* npm start
+* npm install -g nodemon
+* nodemon dist/index.js
 El backend se ejecutará en el puerto 3000.
 
 ### 2. Iniciar el frontend
-cd ../frontend
-npm start
-
-## Dependencias
-###Backend
-* express
-* sequelize
-* mysql2
-* bcrypt
-* jsonwebtoken
-* multer
-### Frontend
-* @angular/core
-* @angular/cli
-* @fullcalendar/angular
-* @fullcalendar/daygrid
-* @fullcalendar/interaction
-* ionicons
+* cd ../frontend
+* ionic serve
 
