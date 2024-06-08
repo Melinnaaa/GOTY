@@ -1,0 +1,66 @@
+/* solicitud.page.scss */
+ion-header{
+    text-align: center;
+}
+
+ion-content {
+    --background: #f0f8ff; /* Fondo principal */
+  }
+  
+  ion-card {
+    background-color: #ffffff; /* Fondo del formulario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #5a9bd4; /* Borde del formulario */
+  }
+  
+  ion-item {
+    --background: transparent; /* Fondo transparente */
+    --border-color: #5a9bd4; /* Color del borde */
+    --color: #333333; /* Color del texto */
+    margin-bottom: 15px;
+  }
+  
+  ion-label {
+    --color: #007bff; /* Color de las etiquetas */
+    font-size: 0.875rem; /* Tamaño de la fuente de las etiquetas */
+    padding-bottom: 8px; /* Espacio debajo de las etiquetas */
+    font-weight: bold; /* Etiquetas en negrita */
+  }
+  
+  ion-input, ion-textarea {
+    --placeholder-color: #999999; /* Color del placeholder */
+    border: 1px solid #5a9bd4; /* Borde de los inputs */
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 1rem; /* Asegúrate de que el tamaño de la fuente sea consistente */
+    padding-top: 15px; /* Agrega padding superior para ajustar el placeholder */
+    line-height: 1.5; /* Ajusta la altura de línea para el contenido del input */
+    
+    /* Estilo del placeholder */
+    &::placeholder {
+      color: #999999; /* Color del placeholder */
+      padding-top: 5px; /* Mueve el placeholder un poco más arriba */
+    }
+  }
+  
+  input[type="file"] {
+    border: 1px solid #5a9bd4; /* Borde de inputs tipo file */
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  ion-button {
+    margin-top: 15px;
+    --background: #007bff; /* Fondo del botón */
+    --color: #ffffff; /* Color del texto del botón */
+    --border-radius: 4px;
+    --padding: 10px 20px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-background: #0056b3; /* Fondo del botón en hover */
+    text-transform: uppercase; /* Texto en mayúsculas para los botones */
+  }
+  

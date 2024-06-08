@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Realizar solicitud</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <!-- Motivo de la solicitud -->
+      <ion-item lines="none">
+        <ion-label position="floating" class="ion-text-wrap">Motivo de solicitud</ion-label>
+        <ion-input [(ngModel)]="motivo"></ion-input>
+      </ion-item>
+
+      <!-- Fecha de la solicitud -->
+      <ion-item lines="none">
+        <ion-label position="floating" class="ion-text-wrap">Fecha</ion-label>
+        <ion-input [(ngModel)]="fecha" readonly></ion-input>
+      </ion-item>
+
+      <!-- Descripción de la solicitud -->
+      <ion-item lines="none">
+        <ion-label position="floating" class="ion-text-wrap">Descripción solicitud</ion-label>
+        <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
+      </ion-item>
+
+      <!-- Subida de archivos (solo PDFs) -->
+      <ion-item lines="none">
+        <ion-label position="fixed" class="ion-text-wrap">Archivos:</ion-label>
+        <input type="file" (change)="onFileSelected($event)" accept=".pdf" multiple>
+      </ion-item>
+
+      <!-- Botón de enviar -->
+      <ion-button expand="full" (click)="realizarSolicitud()">Realizar solicitud</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

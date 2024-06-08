@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Solicitudes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let solicitud of solicitudes">
+    <ion-card-header>
+      <ion-card-title>Solicitud ID: {{ solicitud.Id }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Motivo:</strong> {{ solicitud.Tipo }}</p>
+      <p><strong>Fecha:</strong> {{ solicitud.Fecha }}</p>
+      <p><strong>Descripción:</strong> {{ solicitud.Descripcion }}</p>
+      <p><strong>Respuesta:</strong> {{ solicitud.Respuesta || 'Aún sin respuesta' }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
