@@ -17,3 +17,9 @@ declare module 'express-session' {
       authenticated: boolean;
     }
 }
+
+declare module 'express' {
+  export interface Request {
+    userId?: string;
+  }
+}

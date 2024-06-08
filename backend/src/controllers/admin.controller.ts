@@ -18,23 +18,28 @@ export const getEmpleados = async (req: Request, res: Response) => {
   }
 };
 
-// Obtener un empleado por ID
-export const getEmpleadoById = async (req: Request, res: Response) => {
+export const getUserById = async (req: Request, res: Response) => {
   const { id } = req.params;
+  console.log(id);
+  
   try {
-    const empleado = await Empleado.findByPk(id);
+    let usuario = await Empleado.findByPk(id);
 
-    if (empleado) {
-      res.json(empleado);
-    } else {
-      res.status(404).json({
-        msg: `No existe un empleado con ID ${id}`,
-      });
+    if (!usuario) {
+      usuario = await Admin.findByPk(id);
+      
+      if (!usuario) {
+        return res.status(404).json({
+          msg: `No existe un empleado o administrador con ID ${id}`,
+        });
+      }
     }
+
+    res.json(usuario);
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({
-      msg: 'Error al obtener el empleado',
+      msg: 'Error al obtener el empleado o administrador',
       error,
     });
   }
@@ -61,28 +66,36 @@ export const createEmpleado = async (req: Request, res: Response) => {
 };
 
 // Actualizar un empleado existente
-export const updateEmpleado = async (req: Request, res: Response) => {
+export const updateUser = async (req: Request, res: Response) => {
   const { id } = req.params; 
   const { body } = req;
 
   try {
-    const empleado = await Empleado.findByPk(id);
+    let usuario = await Empleado.findByPk(id);
 
-    if (!empleado) {
-      return res.status(404).json({
-        msg: 'Empleado no encontrado',
-      });
+    if (!usuario) {
+      usuario = await Admin.findByPk(id);
+      if (!usuario) {
+        return res.status(404).json({
+          msg: 'Empleado o administrador no encontrado',
+        });
+      }
     }
 
-    await empleado.update(body);
+    // Verificar si hay una nueva contraseña en el cuerpo de la solicitud
+    console.log(body)
+    if (body.Contrasena) {
+      body.Contraseña = await bcrypt.hash(body.Contrasena, 10);
+    }
+    await usuario.update(body);
     res.json({
-      msg: 'Empleado actualizado correctamente',
-      empleado,
+      msg: `${usuario instanceof Empleado ? 'Empleado' : 'Administrador'} actualizado correctamente`,
+      usuario,
     });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({
-      msg: 'Error al actualizar el empleado',
+      msg: 'Error al actualizar el empleado o administrador',
       error,
     });
   }
