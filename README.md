@@ -13,7 +13,7 @@ Goty App es una aplicación de gestión de empleados y recursos que permite a lo
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <URL del repositorio>
+git clone <https://github.com/Melinnaaa/GOTY.git>
 cd goty-app
 ```
 ### 2. Configurar la base de datos
