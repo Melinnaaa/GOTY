@@ -6,8 +6,7 @@ Goty App es una aplicación de gestión de empleados y recursos que permite a lo
 ## Requisitos
 - Node.js
 - npm (Node Package Manager)
-- MySQL
-- XAMPP (opcional, para gestionar MySQL y Apache en Windows)
+- XAMPP (para gestionar MySQL y Apache en Windows)
 
 ## Instalación
 
