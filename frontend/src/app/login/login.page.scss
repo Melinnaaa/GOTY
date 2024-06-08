@@ -1,0 +1,122 @@
+ion-content {
+    --background:linear-gradient(to bottom, #e1effe, #ffffff);
+  }
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #e1effe, #ffffff);
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #e1effe;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .nav-menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .nav-menu ion-button {
+    margin-left: 20px;
+    --border-color: #007acc;
+    --color: #007acc;
+    --ion-color-primary: #007acc;
+    --background: transparent;
+  }
+  
+  .login-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px); /* Resta el alto del header */
+  }
+  
+  .login-form-container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .logo-text {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #007acc;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  ion-item {
+    --background: #f9f9f9;
+    --padding-start: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  ion-label {
+    color: #007acc;
+  }
+  
+  ion-input {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+  
+  ion-button {
+    --background: #007acc;
+    --color: #fff;
+    --border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .account-prompt {
+    margin: 20px 0;
+    color: #666;
+  }
+  
+  .terms {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .terms a {
+    color: #007acc;
+    text-decoration: none;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+  }
+  
