@@ -1,5 +1,49 @@
-ion-header{
-    text-align: center;
+
+
+/* Asegúrate de que el fondo de ion-content sea claro o transparente */
+
+
+/* Asegúrate de que el fondo de ion-list sea claro o transparente */
+ion-list {
+    --background: transparent !important;
+    background-color: transparent !important;
 }
+
+/* Estilos para ion-card */
+ion-card {
+    --background: #A0AEC0 !important; /* Fondo para las tarjetas */
+    --border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    margin-bottom: 10px; /* Espacio entre las tarjetas */
+    color: #ffffff !important; /* Color del texto */
+    box-shadow: none !important; /* Eliminar sombra */
+    background: #A0AEC0 !important; /* Asegurar el fondo de la tarjeta */
+}
+
+/* Estilos para ion-card-title */
+ion-card ion-card-title {
+    color: #ffffff !important; /* Color del título */
+}
+
+/* Estilos para ion-card-content */
+ion-card ion-card-content p {
+    color: #ffffff !important; /* Color del texto */
+}
+
+
+
+
+:host ion-header {
+    text-align: center;
+    
+}
+
+:host ion-title {
+    color: #fff !important; /* Color negro para el texto del título */
+    
+}
+
+
 
 

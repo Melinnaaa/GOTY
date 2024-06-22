@@ -8,31 +8,31 @@
   <ion-card>
     <ion-card-content>
       <!-- Motivo de la solicitud -->
-      <ion-item lines="none">
-        <ion-label position="floating" class="ion-text-wrap">Motivo de solicitud</ion-label>
-        <ion-input [(ngModel)]="motivo"></ion-input>
+      <ion-item lines="none" class="custom-item">
+        <ion-label position="floating" class="custom-label">Motivo de solicitud</ion-label>
+        <ion-input [(ngModel)]="motivo" class="custom-input"></ion-input>
       </ion-item>
 
       <!-- Fecha de la solicitud -->
-      <ion-item lines="none">
-        <ion-label position="floating" class="ion-text-wrap">Fecha</ion-label>
-        <ion-input [(ngModel)]="fecha" readonly></ion-input>
+      <ion-item lines="none" class="custom-item">
+        <ion-label position="floating" class="custom-label">Fecha</ion-label>
+        <ion-input [(ngModel)]="fecha" readonly class="custom-input"></ion-input>
       </ion-item>
 
       <!-- Descripción de la solicitud -->
-      <ion-item lines="none">
-        <ion-label position="floating" class="ion-text-wrap">Descripción solicitud</ion-label>
-        <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
+      <ion-item lines="none" class="custom-item">
+        <ion-label position="floating" class="custom-label">Descripción solicitud</ion-label>
+        <ion-textarea [(ngModel)]="descripcion" class="custom-input"></ion-textarea>
       </ion-item>
 
       <!-- Subida de archivos (solo PDFs) -->
-      <ion-item lines="none">
-        <ion-label position="fixed" class="ion-text-wrap">Archivos:</ion-label>
-        <input type="file" (change)="onFileSelected($event)" accept=".pdf" multiple>
+      <ion-item lines="none" class="custom-item">
+        <ion-label position="fixed" class="custom-label">Archivos:</ion-label>
+        <input type="file" (change)="onFileSelected($event)" accept=".pdf" multiple class="custom-input">
       </ion-item>
 
       <!-- Botón de enviar -->
-      <ion-button expand="full" (click)="realizarSolicitud()">Realizar solicitud</ion-button>
+      <ion-button expand="full" (click)="realizarSolicitud()" class="custom-button">Realizar solicitud</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

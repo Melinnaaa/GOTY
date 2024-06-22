@@ -11,13 +11,15 @@ export class AccountPage implements OnInit {
   userName: string | null = '';
   userRole: string = '';
   email: string | null = '';
+  comuna: string | null = '';
+  region: string | null = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.loadUserData();
   }
 
-  // Esto hace que se ejecute la pagina siempre al entrar, de esta manera si hay cambios estos se ven reflejados.
   ionViewWillEnter() {
     this.loadUserData();
   }

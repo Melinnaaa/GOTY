@@ -1,11 +1,15 @@
-ion-header{
+ion-header {
     text-align: center;
 }
 
-ion-button{
+ion-button {
     width: 30%;
-    margin: 0 auto;
-    margin-bottom: 10px;
+    margin: 10px auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+    --color: #ffffff !important; /* Color blanco para el texto del botón */
 }
 
 ion-item {
@@ -13,4 +17,59 @@ ion-item {
     --inner-padding-end: 0;
 }
 
+ion-item ion-input {
+    border: 1px solid #000000; /* Color del borde, puedes ajustar según sea necesario */
+    border-radius: 4px; /* Opcional: para redondear las esquinas */
+    padding: 8px; /* Opcional: para agregar padding dentro del input */
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                  radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+}
 
+/* Efecto de enfoque */
+ion-item ion-input::part(native) {
+    background-color: #f0f0f0; /* Color de fondo del área de entrada */
+    color: #ffffff; /* Color del texto dentro del input */
+    padding: 8px; /* Padding dentro del área de entrada */
+}
+
+ion-item ion-input:focus::part(native) {
+    background-color: #ffffff; /* Cambia el fondo al enfocarse */
+    border: 2px solid #ff5733; /* Borde más destacado al enfocarse */
+    outline: none; /* Elimina el borde predeterminado del enfoque */
+    box-shadow: 0 0 10px 2px rgba(255, 87, 51, 0.75); /* Efecto de brillo */
+}
+
+/* Selector más específico para el ion-label dentro de ion-item */
+ion-item ion-label {
+    margin-bottom: 30px; /* Ajusta el valor según sea necesario para el espaciado */
+}
+
+/* Estilos para el ion-card y su contenido */
+ion-card {
+    --background: #A0AEC0 !important; /* Fondo para las tarjetas */
+    color: #ffffff !important; /* Color del texto dentro de las tarjetas */
+}
+
+ion-card-header {
+    background: #A0AEC0 !important; /* Fondo para el encabezado de las tarjetas */
+}
+
+ion-card-content {
+    background: #A0AEC0 !important; /* Fondo para el contenido de las tarjetas */
+    color: #ffffff !important; /* Color del texto dentro del contenido */
+}
+
+ion-list {
+    background: #A0AEC0 !important; /* Fondo para la lista de usuarios */
+}
+
+ion-item {
+    --background: transparent !important; /* Fondo transparente para los ítems dentro de la lista */
+    color: #ffffff !important; /* Color del texto dentro de los ítems */
+}
+p{
+    color: #fff;
+}
+ion-card-title{
+    color: #fff;
+}

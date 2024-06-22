@@ -6,12 +6,12 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let recurso of recursosNoDisponibles">
+    <ion-item *ngFor="let recurso of recursosNoDisponibles" class="custom-item">
       <ion-label>
-        <h2>ID: {{ recurso.idRecurso }}</h2>
-        <p>Tipo: {{ recurso.Tipo }}</p>
-        <p>Fecha de Reserva: {{ recurso.Fecha | date }}</p>
-        <p>Empleado: {{ recurso.Rut }}</p>
+        <h2 class="white-text">ID: {{ recurso.idRecurso }}</h2>
+        <p class="white-text">Tipo: {{ recurso.Tipo }}</p>
+        <p class="white-text">Fecha de Reserva: {{ recurso.Fecha | date }}</p>
+        <p class="white-text">Empleado: {{ recurso.Rut }}</p>
       </ion-label>
       <ion-button (click)="liberarRecurso(recurso.idRecurso)">Liberar</ion-button>
     </ion-item>

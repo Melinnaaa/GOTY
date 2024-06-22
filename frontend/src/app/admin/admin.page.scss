@@ -1,18 +1,17 @@
-ion-header{
-    text-align: center;
+ion-header {
+  text-align: center;
 }
 
-ion-button{
+ion-button {
   width: 30%;
   margin: 0 auto;
   margin-bottom: 10px;
+  --background: #4c7660;
+  --color: #ffffff; /* Color del texto */
 }
 
-// Para que los botones no se solapen con el footer
+/* Para que los botones no se solapen con el footer */
 ion-content {
   --padding-bottom: 5%;
-}
-
-ion-content {
   --padding-top: 10%;
-}  
+}

@@ -35,3 +35,12 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+  /* Estilo de fondo con gradiente de verde oscuro */
+/* Estilo de fondo con gradiente de verde oscuro más pronunciado */
+ion-content {
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                  radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+  }
+ 
+  

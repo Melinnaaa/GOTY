@@ -4,32 +4,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-card-content>
-      <ion-item>
+<ion-content class="ion-padding">
+  <!-- Tarjeta "Actualizar Usuario" con estilo en línea para cambiar el fondo -->
+  <ion-card style="box-shadow: none !important; --ion-shadow-color: transparent !important; --box-shadow: none !important; background-color: #A0AEC0; border: none;">
+    <ion-card-content style="background-color: #A0AEC0;">
+      <ion-item style="--background: #A0AEC0; border: none;">
         <ion-label position="floating">Ingrese Rut del usuario</ion-label>
-        <ion-input [(ngModel)]="userId"></ion-input>
+        <ion-input [(ngModel)]="userId" style="background: #A0AEC0; border: none;"></ion-input>
       </ion-item>
       <ion-button expand="full" (click)="getUser()">Buscar Usuario</ion-button>
     </ion-card-content>
   </ion-card>
 
   <div *ngIf="user.Rut">
-    <ion-card>
-      <ion-card-header>
+    <ion-card style="box-shadow: none !important; --ion-shadow-color: transparent !important; --box-shadow: none !important; background-color: #A0AEC0; border: none;">
+      <ion-card-header style="background-color: #A0AEC0;">
         <ion-card-title>Actualizar Información</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-        <ion-item>
+      <ion-card-content style="background-color: #A0AEC0;">
+        <ion-item style="--background: #A0AEC0; border: none;">
           <ion-label position="floating">Nombre</ion-label>
-          <ion-input [(ngModel)]="user.Nombre"></ion-input>
+          <ion-input [(ngModel)]="user.Nombre" style="background: #A0AEC0; border: none;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item style="--background: #A0AEC0; border: none;">
           <ion-label position="floating">Correo Electrónico</ion-label>
-          <ion-input [(ngModel)]="user.Correo"></ion-input>
+          <ion-input [(ngModel)]="user.Correo" style="background: #A0AEC0; border: none;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item style="--background: #A0AEC0; border: none;">
           <ion-label position="stacked">Rol</ion-label>
           <ion-text class="ion-padding-start">{{ user.role === 0 ? 'Usuario' : 'Administrador' }}</ion-text>
         </ion-item>

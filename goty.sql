@@ -22,10 +22,9 @@ CREATE TABLE Recurso (
     Disponibilidad BOOLEAN NOT NULL,
     Rut VARCHAR(12),
     Tipo VARCHAR(255) NOT NULL,
-    Fecha DATE
+    Fecha DATE,
+    FOREIGN KEY (Rut) REFERENCES empleado(Rut)
 );
-CREATE DATABASE IF NOT EXISTS goty;
-USE goty;
 
 CREATE TABLE Administrador (
     Rut VARCHAR(12) PRIMARY KEY,
@@ -35,13 +34,7 @@ CREATE TABLE Administrador (
     role TINYINT(1) NOT NULL DEFAULT 1 
 );
 
-CREATE TABLE Solicitud (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    Tipo VARCHAR(255) NOT NULL,
-    Archivo MEDIUMBLOB,
-    Fecha DATE NOT NULL,
-    Descripcion VARCHAR(255) NOT NULL
-);
+ 
 
 CREATE TABLE empleadoSolicitud (
     Rut VARCHAR(12),

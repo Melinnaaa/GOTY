@@ -23,8 +23,8 @@ export class VerHorariosPage implements OnInit {
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       eventDisplay: 'block',
-      eventTextColor: 'white',
-      eventBackgroundColor: 'blue',
+      eventTextColor: '#2D3748', // Slate color for text
+      eventBackgroundColor: '#A0AEC0', // Background color for events
       height: 'auto',
       eventDidMount: function(info) {
         info.el.innerHTML = info.event.title.replace(/\n/g, '<br>');
@@ -33,10 +33,6 @@ export class VerHorariosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.obtenerHorarios();
-  }
-
-  ionViewWillEnter() {
     this.obtenerHorarios();
   }
 

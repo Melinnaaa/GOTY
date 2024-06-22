@@ -1,3 +1,4 @@
+/* horario.page.scss */
 :host {
     full-calendar {
       width: 100%;
@@ -6,16 +7,48 @@
     }
   
     .fc .fc-event {
-      background-color: blue !important;
-      color: white !important;
+      background-color: red !important; /* Cambiar fondo de los eventos a rojo */
+      color: yellow !important; /* Cambiar color del texto a amarillo */
     }
   
     .fc-toolbar-title {
       font-size: 1.5em;
     }
-  }
-
-ion-footer{
-  padding-top: 5%;
-}
   
+    .fc-daygrid-day-frame {
+      background-color: #718096 !important; /* Fondo para los días */
+    }
+  
+    .fc-daygrid-day:hover .fc-daygrid-day-frame {
+      background-color: #2D3748 !important; /* Fondo más oscuro al pasar el ratón */
+    }
+  
+    .fc-button-primary {
+      background-color: #63B3ED; /* Botones principales en Sky Blue */
+      border-color: #63B3ED;
+    }
+  
+    .fc-button-primary:hover {
+      background-color: #2D3748; /* Botones principales en Slate cuando se pasa el ratón */
+      border-color: #2D3748;
+    }
+  }
+  
+  ion-button {
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  ion-button:hover {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.75); /* Ajusta los valores según sea necesario */
+    background-color: #718096 !important; /* Tono más oscuro de #A0AEC0 */
+  }
+  
+  .day-hover {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.75); /* Efecto de brillo */
+    z-index: 1; /* Asegura que el brillo esté por encima de otros elementos */
+  }
+  
+
+  ion-content{
+    --padding-bottom: 10%;
+}

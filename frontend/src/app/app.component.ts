@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute  } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -10,12 +10,11 @@ import { Location } from '@angular/common';
 export class AppComponent {
   mostrarFooter: boolean;
   mostrarBoton: boolean;
-  private navigationHistory: string[][] = [[]];
 
-  constructor(private router: Router, private location: Location) {
+  constructor(private router: Router, private location: Location, private route: ActivatedRoute) {
     this.mostrarFooter = this.getCookie('mostrarFooter') !== 'false';
     this.mostrarBoton = this.getCookie('mostrarBoton') !== 'false';
-
+ 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentUrl = event.urlAfterRedirects || event.url;
@@ -29,54 +28,30 @@ export class AppComponent {
 
         console.log('Updated mostrarFooter:', this.mostrarFooter);
         console.log('Updated mostrarBoton:', this.mostrarBoton);
-
-        this.addToHistory(currentUrl);
       }
     });
   }
 
-  addToHistory(url: string) {
-    const currentLevel = this.navigationHistory.length - 1;
-    this.navigationHistory[currentLevel].push(url);
-  
-    // Si la página actual se redirigió, elimina la URL anterior de la pila
-    if (this.navigationHistory[currentLevel].length > 1) {
-      this.navigationHistory[currentLevel].pop();
-    }
-  }
-  
-
-  removeFromHistory() {
-    const currentLevel = this.navigationHistory.length - 1;
-    this.navigationHistory[currentLevel].pop();
-  }
-
-  getPreviousUrl(): string {
-    const currentLevel = this.navigationHistory.length - 1;
-    if (this.navigationHistory[currentLevel].length > 1) {
-      this.navigationHistory[currentLevel].pop(); // Elimina la última página actual
-      return this.navigationHistory[currentLevel].pop() || '/'; // Retorna la página anterior o la raíz si no hay una anterior
-    } else if (this.navigationHistory.length > 1) {
-      // Si no hay más páginas en este nivel, retrocede al nivel anterior
-      this.navigationHistory.pop();
-      const prevLevel = this.navigationHistory.length - 1;
-      return this.navigationHistory[prevLevel].pop() || '/';
-    } else {
-      return '/';
-    }
-  }
-
-  pushNavigationLevel() {
-    this.navigationHistory.push([]);
-  }
-
-  popNavigationLevel() {
-    this.navigationHistory.pop();
-  }
-
   goBack() {
-    const previousUrl = this.getPreviousUrl();
-    this.router.navigateByUrl(previousUrl);
+    const currentUrl = this.router.url;
+    if (currentUrl === '/login' || currentUrl === '/register') {
+      this.router.navigate(['/home']);
+    }
+    if (currentUrl === '/solicitud' || currentUrl === '/ver-solicitudes' || currentUrl === '/reservar-recurso' || currentUrl === '/reservas'|| currentUrl === '/ver-horarios'|| currentUrl === '/admin') {
+      this.router.navigate(['/principal']);
+    }
+    if (currentUrl === '/see-users' || currentUrl === '/update-user' || currentUrl === '/search' || currentUrl === '/delete-user'|| currentUrl === '/crear-admin'|| currentUrl === '/admin-solicitudes'|| currentUrl === '/admin-recursos'|| currentUrl === '/horario') {
+      this.router.navigate(['/admin']);
+    }
+    if (currentUrl === '/account') {
+      this.router.navigate(['/principal']);
+    }
+    if (currentUrl === '/update-profile') {
+      this.router.navigate(['/account']);
+    }
+    if (currentUrl.startsWith('/editar-turno/')) {
+      this.router.navigate(['/horario']);
+    }
   }
 
   private getCookie(name: string): string {

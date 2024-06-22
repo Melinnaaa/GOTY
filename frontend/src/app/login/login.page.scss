@@ -1,122 +1,161 @@
-ion-content {
-    --background:linear-gradient(to bottom, #e1effe, #ffffff);
+/* ver-horarios.page.scss */
+
+:host {
+  full-calendar {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-.login-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #e1effe, #ffffff);
-    padding: 0;
-    height: 100vh;
-    font-family: Arial, sans-serif;
+  .fc .fc-event {
+    background-color: #A0AEC0 !important; /* Usar color #A0AEC0 */
+    color: #2D3748 !important; /* Cambiar el color del texto a Slate */
   }
-  
-  .header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: #e1effe;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .nav-menu a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .nav-menu ion-button {
-    margin-left: 20px;
-    --border-color: #007acc;
-    --color: #007acc;
-    --ion-color-primary: #007acc;
-    --background: transparent;
-  }
-  
-  .login-form-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100vh - 100px); /* Resta el alto del header */
-  }
-  
-  .login-form-container {
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  .logo-text {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #007acc;
-  }
-  
-  h2 {
+
+  .fc-toolbar-title {
     font-size: 1.5em;
-    color: #333;
-    margin-bottom: 20px;
   }
-  
-  ion-item {
-    --background: #f9f9f9;
-    --padding-start: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+
+  .fc-daygrid-day {
+    background-color: #EDF2F7; /* Fondo claro para los días */
   }
+
+  .fc-daygrid-day:hover {
+    background-color: #CBD5E0; /* Fondo más oscuro al pasar el ratón */
+  }
+
+  .fc-button-primary {
+    background-color: #63B3ED; /* Botones principales en Sky Blue */
+    border-color: #63B3ED;
+  }
+
+  .fc-button-primary:hover {
+    background-color: #2D3748; /* Botones principales en Slate cuando se pasa el ratón */
+    border-color: #2D3748;
+  }
+}
+
+ion-button {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+ion-button:hover {
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.75); /* Ajusta los valores según sea necesario */
+}
+
+/* Login page specific styles */
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #e1effe, #ffffff);
+  padding: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu ion-button {
+  margin-left: 20px;
+  --border-color: #007acc;
+  --color: #007acc;
+  --ion-color-primary: #007acc;
+  --background: transparent;
+}
+
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 100px); /* Resta el alto del header */
+  margin-top: 80px; /* Ajusta el valor según necesites */
+}
+
+.login-form-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  background: #718096;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.logo-text {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #008fcc;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+ion-item {
+  --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+  --padding-start: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
   
   ion-label {
-    color: #007acc;
+    margin-bottom: 8px; /* Ajusta el margen inferior según sea necesario */
+    color: #008fcc;
   }
-  
-  ion-input {
-    --padding-start: 10px;
-    --padding-end: 10px;
-  }
-  
-  ion-button {
-    --background: #007acc;
-    --color: #fff;
-    --border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .account-prompt {
-    margin: 20px 0;
-    color: #666;
-  }
-  
-  .terms {
-    font-size: 0.9em;
-    color: #666;
-  }
-  
-  .terms a {
-    color: #007acc;
-    text-decoration: none;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.9em;
-  }
-  
+}
+
+ion-label {
+  color: #008fcc;
+}
+
+ion-input {
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+ion-button {
+  --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+  radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+  --color: #fff;
+  --border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+.account-prompt {
+  margin: 20px 0;
+  --color: #fff;
+}
+
+.terms {
+  font-size: 0.9em;
+  --color: #fff;
+}
+
+.terms a {
+  color: #008fcc;
+  text-decoration: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}

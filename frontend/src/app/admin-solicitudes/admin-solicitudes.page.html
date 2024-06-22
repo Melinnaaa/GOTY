@@ -6,27 +6,27 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let solicitud of solicitudes" (click)="seleccionarSolicitud(solicitud)">
+    <ion-item *ngFor="let solicitud of solicitudes" (click)="seleccionarSolicitud(solicitud)" class="custom-item">
       <ion-label>
-        <h2>Solicitud ID: {{ solicitud.Id }}</h2>
-        <p>Motivo: {{ solicitud.Tipo }}</p>
-        <p>Fecha: {{ solicitud.Fecha }}</p>
-        <p>Descripción: {{ solicitud.Descripcion }}</p>
-        <p>Respuesta: {{ solicitud.Respuesta || 'Aún sin respuesta' }}</p>
+        <h2 class="white-text">Solicitud ID: {{ solicitud.Id }}</h2>
+        <p class="white-text">Motivo: {{ solicitud.Tipo }}</p>
+        <p class="white-text">Fecha: {{ solicitud.Fecha }}</p>
+        <p class="white-text">Descripción: {{ solicitud.Descripcion }}</p>
+        <p class="white-text">Respuesta: {{ solicitud.Respuesta || 'Aún sin respuesta' }}</p>
         <ion-button *ngIf="solicitud.Archivo" (click)="descargarArchivo(solicitud.Id)">Descargar Archivo</ion-button>
       </ion-label>
     </ion-item>
   </ion-list>
 
   <div *ngIf="solicitudSeleccionada">
-    <ion-card>
+    <ion-card class="custom-card">
       <ion-card-header>
-        <ion-card-title>Responder Solicitud</ion-card-title>
+        <ion-card-title class="white-text">Responder Solicitud</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Respuesta</ion-label>
-          <ion-textarea [(ngModel)]="respuesta"></ion-textarea>
+        <ion-item class="custom-item">
+          <ion-label position="floating" class="white-text">Respuesta</ion-label>
+          <ion-textarea [(ngModel)]="respuesta" class="white-text"></ion-textarea>
         </ion-item>
         <ion-button expand="full" (click)="responderSolicitud()">Enviar Respuesta</ion-button>
       </ion-card-content>

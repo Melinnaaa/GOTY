@@ -23,10 +23,10 @@ export class HorarioPage implements OnInit {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      dateClick: this.handleDateClick.bind(this), // bind the method to this context
+      dateClick: this.handleDateClick.bind(this), 
       eventDisplay: 'block',
-      eventTextColor: 'white',
-      eventBackgroundColor: 'blue',
+      eventTextColor: '#2D3748', 
+      eventBackgroundColor: '#718096', 
       height: 'auto',
       eventDidMount: function(info) {
         info.el.innerHTML = info.event.title.replace(/\n/g, '<br>');
@@ -95,7 +95,7 @@ export class HorarioPage implements OnInit {
     });
 
     const events = Object.values(eventsMap).map((event: any) => {
-      event.title = Array.from(event.empleados).join('<br>');  // Usar '<br>' para separar los nombres por líneas
+      event.title = Array.from(event.empleados).join('<br>');  
       return event;
     });
 

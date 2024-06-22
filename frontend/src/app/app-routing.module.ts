@@ -80,11 +80,19 @@ const routes: Routes = [
   {
     path: 'solicitud',
     canMatch: [isLoggedInGuard],
+    canActivate: [authRoleGuardGuard],
+    data:{
+      allowedRoles: [0]
+    },
     loadChildren: () => import('./solicitud/solicitud.module').then( m => m.SolicitudPageModule)
   },
   {
     path: 'ver-solicitudes',
     canMatch: [isLoggedInGuard],
+    canActivate: [authRoleGuardGuard],
+    data:{
+      allowedRoles: [0]
+    },
     loadChildren: () => import('./ver-solicitudes/ver-solicitudes.module').then( m => m.VerSolicitudesPageModule)
   },
   {
@@ -99,6 +107,10 @@ const routes: Routes = [
   {
     path: 'reservar-recurso',
     canMatch: [isLoggedInGuard],
+    canActivate: [authRoleGuardGuard],
+    data:{
+      allowedRoles: [0]
+    },
     loadChildren: () => import('./reservar-recurso/reservar-recurso.module').then( m => m.ReservarRecursoPageModule)
   },
   {
@@ -144,10 +156,16 @@ const routes: Routes = [
   },
   {
     path: 'reservas',
+    canMatch: [isLoggedInGuard],
+    canActivate: [authRoleGuardGuard],
+    data:{
+      allowedRoles: [0]
+    },
     loadChildren: () => import('./reservas/reservas.module').then( m => m.ReservasPageModule)
   },
   {
     path: 'update-profile',
+    canMatch: [isLoggedInGuard],
     loadChildren: () => import('./update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
   },
 ];

@@ -9,12 +9,16 @@ img {
 
 h2{
     text-align: center;
+    margin-bottom: 30px; /* Ajusta el margen inferior del h2 */
 }
 
 ion-button{
     width: 30%;
     margin: 0 auto;
     margin-bottom: 10px;
+    --background: #4c7660; /* Color de fondo para los botones */
+    --color: #FFFFFF; /* Color del texto en los botones (blanco en este caso) */
+
 }
 
 ion-title{
@@ -22,10 +26,16 @@ ion-title{
 }
 
 // Para que los botones no se solapen con el footer
-ion-content {
-    --padding-bottom: 5%;
-}
-
+.page-principal ion-content {
+    --padding-bottom: 5%; /* Ajuste de padding-bottom específico para la página principal */
+  }
 ion-header{
     position: relative;
 }
+ion-toolbar {
+    --background: #4c7660; 
+    --color: #FFFFFF; /* Color para el texto y los iconos en la barra de herramientas */
+    --ion-toolbar-background: var(--background); /* Asegura que el fondo se aplique correctamente */
+    --ion-color-base: var(--color); /* Asegura que el color se aplique correctamente */
+  }
+

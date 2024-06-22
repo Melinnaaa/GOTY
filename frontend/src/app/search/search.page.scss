@@ -1,14 +1,45 @@
-ion-header{
+ion-header {
     text-align: center;
 }
 
-ion-button{
+ion-button {
     width: 30%;
-    margin: 0 auto;
-    margin-bottom: 10px;
+    margin: 10px auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                  radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+    --color: #ffffff !important; /* Color blanco para el texto del botón */
 }
 
 ion-item {
     --padding-start: 0;
     --inner-padding-end: 0;
+}
+
+ion-item ion-input {
+    border: 1px solid #000000; /* Color del borde, puedes ajustar según sea necesario */
+    border-radius: 4px; /* Opcional: para redondear las esquinas */
+    padding: 8px; /* Opcional: para agregar padding dentro del input */
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                  radial-gradient(circle at top right, #354f52, #2f3e46, #2f3e46);
+}
+
+/* Selector más específico para el ion-label dentro de ion-item */
+ion-item ion-label {
+    margin-bottom: 30px; /* Ajusta el valor según sea necesario para el espaciado */
+}
+
+.rut-card {
+    box-shadow: none !important; /* Elimina cualquier sombra */
+    --ion-shadow-color: transparent !important; /* Asegúrate de eliminar cualquier sombra */
+    --box-shadow: none !important; /* Alternativa para asegurar eliminación de sombras */
+    --background: #333333; /* Color de fondo si es necesario para asegurarse de que la sombra no es visible */
+}
+
+.no-shadow {
+    box-shadow: none !important;
+    --box-shadow: none !important;
+    --ion-shadow-color: transparent !important;
+    --background: #333333;
 }

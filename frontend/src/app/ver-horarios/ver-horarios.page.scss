@@ -1,0 +1,35 @@
+/* ver-horarios.page.scss */
+:host {
+    full-calendar {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .fc .fc-event {
+        background-color: #A0AEC0 !important; /* Usar color #A0AEC0 */
+        color: #2D3748 !important; /* Cambiar el color del texto a Slate */
+    }
+
+    .fc-toolbar-title {
+        font-size: 1.5em;
+    }
+
+    .fc-daygrid-day {
+        background-color: #EDF2F7; /* Fondo claro para los días */
+    }
+
+    .fc-daygrid-day:hover {
+        background-color: #CBD5E0; /* Fondo más oscuro al pasar el ratón */
+    }
+
+    .fc-button-primary {
+        background-color: #63B3ED; /* Botones principales en Sky Blue */
+        border-color: #63B3ED;
+    }
+
+    .fc-button-primary:hover {
+        background-color: #2D3748; /* Botones principales en Slate cuando se pasa el ratón */
+        border-color: #2D3748;
+    }
+}

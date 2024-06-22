@@ -1,0 +1,69 @@
+ion-header {
+    text-align: center;
+    color: white;
+    --background: #A0AEC0;
+    --border-color: transparent !important;
+}
+
+ion-toolbar {
+    --background: #A0AEC0;
+}
+
+ion-title {
+    color: white;
+}
+
+ion-button {
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+                  radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+    --color: #ffffff !important; /* Color blanco para el texto del botón */
+}
+
+ion-text {
+    font-size: 16px; 
+    display: block; 
+    margin-top: 10px; 
+    padding-left: 0; 
+    color: white;
+}
+
+ion-label {
+    font-size: 16px; 
+    color: white;
+}
+
+.white-text {
+    color: white !important;
+}
+
+ion-item.custom-item {
+    --background: #A0AEC0 !important;
+    color: white;
+    --inner-padding-bottom: 6px; 
+    --inner-padding-top: 6px; 
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --border-color: transparent !important;
+}
+
+ion-input, ion-textarea {
+    background: #A0AEC0 !important; /* Asegura el mismo color de fondo */
+    border: none !important; /* Elimina los bordes */
+    color: white !important; /* Color blanco para el texto */
+}
+
+ion-card.custom-card {
+    box-shadow: none !important; /* Elimina cualquier sombra */
+    --ion-shadow-color: transparent !important; /* Asegúrate de eliminar cualquier sombra */
+    --box-shadow: none !important; /* Alternativa para asegurar eliminación de sombras */
+    background-color: #A0AEC0 !important; /* Color de fondo */
+    border: none !important; /* Elimina el borde */
+    color: white;
+}
+
+ion-content{
+    --padding-bottom: 5%;
+}

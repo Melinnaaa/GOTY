@@ -14,6 +14,10 @@ export class LoginPage {
   emailError: string = '';
   passwordError: string = '';
   loginError: string = '';
+  
+  // Propiedad para controlar la visibilidad del toolbar
+  hideToolbar: boolean = true; // Ocultamos el toolbar por defecto en la página de login
+
   constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
@@ -59,5 +63,10 @@ export class LoginPage {
   validateEmail(): boolean {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return emailRegex.test(this.email);
+  }
+
+  // Función para manejar la navegación hacia atrás
+  goBack() {
+    this.router.navigate(['/']); // Redirigir a la página anterior o la principal según sea necesario
   }
 }

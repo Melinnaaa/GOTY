@@ -6,11 +6,11 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <h2>Bienvenido(a) {{ userName }}</h2>
-  <h2>Livestream</h2>
+  
 
-  <ion-button expand="full" [routerLink]="['/solicitud']">Realiza una solicitud</ion-button> 
-  <ion-button expand="full" [routerLink]="['/ver-solicitudes']">Ver solicitudes realizadas</ion-button> 
-  <ion-button expand="full" [routerLink]="['/reservar-recurso']">Reserva un recurso</ion-button>
-  <ion-button expand="full" [routerLink]="['/ver-horarios']">Ver horarios</ion-button>
-  <ion-button expand="full" [routerLink]="['/reservas']">Ver reservas</ion-button>
+  <ion-button expand="full" *akoShowForRoles="[0]" [routerLink]="['/solicitud']">Realiza una solicitud</ion-button> 
+  <ion-button expand="full" *akoShowForRoles="[0]" [routerLink]="['/ver-solicitudes']">Ver solicitudes realizadas</ion-button> 
+  <ion-button expand="full" *akoShowForRoles="[0]" [routerLink]="['/reservar-recurso']">Reserva un recurso</ion-button>
+  <ion-button expand="full" [routerLink]="['/ver-horarios']">Horario</ion-button>
+  <ion-button expand="full" *akoShowForRoles="[0]" [routerLink]="['/reservas']">Reservas</ion-button>
 </ion-content>

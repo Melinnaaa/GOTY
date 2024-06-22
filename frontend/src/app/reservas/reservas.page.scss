@@ -1,0 +1,32 @@
+/* reservas.page.scss */
+
+/* Estilos para ion-item */
+ion-item {
+    --background: #A0AEC0; /* Fondo para la casilla */
+    --border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    margin-bottom: 10px; /* Espacio entre las casillas */
+    box-shadow: none; /* Eliminar sombra */
+    background: none; /* Eliminar fondo adicional */
+}
+
+/* Estilos para el título dentro de ion-item */
+ion-item ion-label h2 {
+    color: #fff; /* Color para el título */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Estilos para los párrafos dentro de ion-item */
+ion-item ion-label p {
+    color: #fff; /* Color para el texto */
+    font-size: 1em;
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* Añadir un fondo específico al ion-list para asegurar que no haya un fondo negro */
+ion-list {
+    background: none; /* Eliminar cualquier fondo adicional */
+}

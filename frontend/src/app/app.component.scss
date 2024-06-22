@@ -3,6 +3,20 @@ ion-footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    
+    --background: #4c7660; /* Azul claro */
+    --color: #FFFFFF; /* Color para el texto y los iconos en la barra de herramientas */
+    --ion-toolbar-background: var(--background);  /*Asegura que el fondo se aplique correctamente */
+    --ion-color-base: var(--color); /* Asegura que el color se aplique correctamente */
+    
+    
+}
+ion-header{
+    --background: radial-gradient(circle at top left, #0c1b2b, #08161f, #2f3e46),
+    radial-gradient(circle at top right, #354f52, #2f3e46, #08161f);
+    --color: #FFFFFF; /* Color para el texto y los iconos en la barra de herramientas */
+    --ion-toolbar-background: var(--background);  /*Asegura que el fondo se aplique correctamente */
+    --ion-color-base: var(--color); /* Asegura que el color se aplique correctamente */
 }
 
 ion-button{
