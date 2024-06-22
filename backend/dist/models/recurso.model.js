@@ -30,6 +30,10 @@ Recurso.init({
         type: sequelize_1.DataTypes.DATE,
         allowNull: true,
     },
+    Tipo: {
+        type: sequelize_1.DataTypes.STRING(255),
+        allowNull: false,
+    },
 }, {
     sequelize: connection_1.default,
     tableName: 'Recurso',

@@ -7,6 +7,7 @@ class Recurso extends Model {
   public Disponibilidad!: boolean;
   public Rut!: string | null;
   public Fecha!: Date | null;
+  public Tipo!: string; 
 }
 
 Recurso.init({
@@ -30,6 +31,10 @@ Recurso.init({
   Fecha: {
     type: DataTypes.DATE,
     allowNull: true,
+  },
+  Tipo: {
+    type: DataTypes.STRING(255),
+    allowNull: false,
   },
 }, {
   sequelize,
