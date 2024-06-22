@@ -7,8 +7,7 @@ CREATE TABLE Empleado (
     Correo VARCHAR(256) NOT NULL,
     Contraseña CHAR(60) NOT NULL,
     Nombre VARCHAR(100) NOT NULL,
-    role TINYINT(1) NOT NULL DEFAULT 0 -- Añadido el atributo role con valor por defecto 0
-);
+    role TINYINT(1) NOT NULL DEFAULT 0 );
 
 CREATE TABLE turnos (
   fecha DATE NOT NULL,
@@ -34,7 +33,14 @@ CREATE TABLE Administrador (
     role TINYINT(1) NOT NULL DEFAULT 1 
 );
 
- 
+CREATE TABLE Solicitud (
+  Id INT PRIMARY KEY AUTO_INCREMENT,
+  Tipo varchar(255) NOT NULL,
+  Archivo MEDIUMBLOB DEFAULT NULL,
+  Fecha date NOT NULL,
+  Descripcion varchar(255) NOT NULL,
+  Respuesta varchar(255) DEFAULT NULL
+);
 
 CREATE TABLE empleadoSolicitud (
     Rut VARCHAR(12),
