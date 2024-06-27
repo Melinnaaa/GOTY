@@ -42,6 +42,8 @@ cd goty-app
 ### 1. Iniciar el backend
 * cd backend
 * npm install -g nodemon
+* tsc --watch
+* Desde otra terminal en cd backend
 * nodemon dist/index.js
 El backend se ejecutará en el puerto 3000.
 
