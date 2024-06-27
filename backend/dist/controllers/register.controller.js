@@ -28,8 +28,8 @@ const empleado_model_1 = __importDefault(require("../models/empleado.model")); /
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const axios_1 = __importDefault(require("axios"));
 const postUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const _a = req.body, { Rut, Contraseña, captchaToken } = _a, restoDatos = __rest(_a, ["Rut", "Contrase\u00F1a", "captchaToken"]);
-    console.log(Rut, Contraseña);
+    const _a = req.body, { Rut, Contrasena, captchaToken } = _a, restoDatos = __rest(_a, ["Rut", "Contrasena", "captchaToken"]);
+    console.log(Rut, Contrasena);
     // Verificar el token de reCAPTCHA
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
@@ -42,7 +42,7 @@ const postUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.status(400).json({ msg: 'Captcha inválido o interacción sospechosa' });
         }
         // Hashear la contraseña antes de guardar el usuario
-        const hashedPassword = yield bcrypt_1.default.hash(Contraseña, 10);
+        const hashedPassword = yield bcrypt_1.default.hash(Contrasena, 10);
         // Crear o encontrar un usuario en la tabla de Empleados
         const [user, created] = yield empleado_model_1.default.findOrCreate({
             where: { Rut },

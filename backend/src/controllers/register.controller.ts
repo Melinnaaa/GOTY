@@ -4,8 +4,8 @@ import bcrypt from 'bcrypt';
 import axios from 'axios';
 
 export const postUser = async (req: Request, res: Response) => {
-  const { Rut, Contraseña, captchaToken, ...restoDatos } = req.body;
-  console.log(Rut, Contraseña)
+  const { Rut, Contrasena, captchaToken, ...restoDatos } = req.body;
+  console.log(Rut, Contrasena)
   // Verificar el token de reCAPTCHA
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
   const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
@@ -22,7 +22,7 @@ export const postUser = async (req: Request, res: Response) => {
     }
 
     // Hashear la contraseña antes de guardar el usuario
-    const hashedPassword = await bcrypt.hash(Contraseña, 10);
+    const hashedPassword = await bcrypt.hash(Contrasena, 10);
 
     // Crear o encontrar un usuario en la tabla de Empleados
     const [user, created] = await Empleado.findOrCreate({
