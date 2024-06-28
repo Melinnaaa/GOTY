@@ -48,6 +48,7 @@ cd goty-app
 El backend se ejecutará en el puerto 3000.
 
 ### 2. Iniciar el frontend
-* cd ../frontend
+* Abrir otra terminal
+* cd frontend
 * ionic serve
 
